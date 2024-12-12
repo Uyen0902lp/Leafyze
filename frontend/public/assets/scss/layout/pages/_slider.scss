@@ -1,0 +1,180 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.1 Slider css
+/*----------------------------------------*/
+
+// five home grocery
+
+.#{$theme-prifix}-slider{
+    &-title-5{
+        font-weight: 500;
+        font-size: 50px;
+        line-height: .96;
+        color: var(--tp-common-black);
+        margin-bottom: 47px;
+
+        @media #{$x3l}{
+           font-size: 72px;
+        }
+        @media #{$xxl}{
+           font-size: 60px;
+        }
+        @media #{$lg}{
+           font-size: 45px;
+        }
+        @media #{$md}{
+           font-size: 30px;
+        }
+        @media #{$xs, $sm}{
+            font-size: 20px;
+         }
+        
+    }
+    &-content-5{
+        @media #{$x4l}{
+            margin-left: 80px;
+        }
+        @media #{$x3l}{
+            margin-left: 120px;
+        }
+        @media #{$xxl}{
+            margin-left: 170px;
+        }
+        @media #{$md}{
+            margin-top: 100px;
+        }
+        @media #{$sm, $xs}{
+            margin-top: 55px;
+        }
+        & span{
+            font-size: 40px;
+            color: var(--tp-theme-green);
+            font-style: italic;
+            display: inline-block;
+            font-family: var(--tp-ff-charm);
+            margin-bottom: 25px;
+        }
+    }
+    &-height-5{
+        min-height: 700px;
+
+        @media #{$md}{
+            min-height: 500px;
+        }
+
+        @media #{$sm, $xs}{
+            min-height: 400px;
+        }
+    }
+    &-subtitle-img{
+        margin-bottom: 7px;
+    }
+    &-thumb{
+        &-shape-5{
+            & .offer{
+                position: absolute;
+                top: 11%;
+                left: 23%;
+                z-index: 1;
+
+                @media #{ $xs}{
+                    display: none;
+                }
+            }
+            &.one{
+                position: absolute;
+                top: 0;
+                left: 150px;
+
+                @media #{$md}{
+                    top: 0;
+                    left: 160px;
+                }
+
+                @media #{$sm}{
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+        &-5{
+            @include transform(translate(-100px, 0px));
+            @media #{$md, $sm, $xs}{
+                margin: 0;
+                @include transform(translate(0, 0));
+            }
+
+
+            &-gradient{
+                position: absolute;
+                top: 0;
+                left: 25%;
+                display: inline-block;
+                height: 548px;
+                width: 548px;
+                border-radius: 50%;
+                @include tp-gradient((169.68deg, rgba(255, 255, 255, 0.6) 6.47%, rgba(255, 255, 255, 0) 42.78%));
+                z-index: -1;
+                @media #{$sm}{
+                    width: 450px;
+                    height: 450px;
+                }
+
+                @media #{$xs}{
+                    width: 280px;
+                    height: 280px;
+                }
+            }
+            & img{
+                @media #{$md, $sm, $xs}{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &-shape-5{
+        &-1{
+            position: absolute;
+            top: 14%;
+            left: 15%;
+            z-index: 1;
+
+            @media #{$md}{
+                top: -2%;
+                left: 8%;
+            }
+
+            @media #{$sm}{
+                top: 3%;
+                left: 7%;
+            }
+            @media #{$xs}{
+                top:55%;
+            }
+        }
+        &-2{
+            position: absolute;
+            top: 14%;
+            right: 7%;
+            z-index: 1;
+        }
+        &-3{
+            position: absolute;
+            bottom: 15%;
+            left: 33%;
+            z-index: 1;
+        }
+        &-4{
+            position: absolute;
+            top: 36%;
+            left: 43%;
+            z-index: 1;
+
+            @media #{$xs}{
+                top: 34%;
+                left: 60%;
+            }
+        }
+    }
+}

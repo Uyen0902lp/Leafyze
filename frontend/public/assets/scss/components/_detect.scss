@@ -1,0 +1,189 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  9.1 Detect CSS
+/*----------------------------------------*/
+.#{$theme-prifix}-detect {
+    background-image: url('../../images/banner/banner.png');
+    background-size: cover;
+    background-position: center;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 600px;
+    max-height: 450px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 2px 8px 15px rgba(0, 0, 0, 0.15);
+
+    &-title{
+        font-weight: 550;
+        font-size: 34px;
+        line-height: 1;    
+        margin-bottom: 15px;    
+        &-pre{
+            display: inline-block;
+            height: 24px;
+            line-height: 26px;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+            background: var(--tp-theme-primary);
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            padding: 0 7px;
+            margin-bottom: 12px;
+        }
+    }
+
+    &-healthy-message {
+        font-size: 24px;
+
+        &.accuracy {
+            font-size: 20px;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        gap: 16px;
+        margin-top: 5px;
+        justify-content: center;
+    }
+
+    &-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed var(--tp-theme-green);
+        border-radius: 10px;
+        padding: 50px 40px;
+        text-align: center;
+        transition: border-color 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        max-width: 500px;
+        box-sizing: border-box;
+        min-height: 300px;
+
+        &.dragging {
+            border-color: #4caf50;
+            background-color: rgba(240, 249, 240, 0.9);
+        }
+
+        @media #{$xs} {
+            padding: 30px 20px;
+        }
+
+        &-text {
+            font-size: 16px;
+            color: #666;
+            margin: 10px 0;
+
+            @media #{$xs} {
+                font-size: 14px;
+            }
+        }
+
+        &-hint {
+            color: #888;
+            font-size: 14px;
+            margin-top: 10px;
+
+            @media #{$xs} {
+                font-size: 12px;
+            }
+        }
+    
+
+        &-button {
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--tp-common-white);
+            display: inline-block;
+            padding: 8px 28px;
+            border-radius: 24px;
+            background-color: var(--tp-theme-green);
+            cursor: pointer;
+            margin-top: 20px;
+
+            &:hover {
+                background-color: #42603D;
+                color: var(--tp-common-white);
+            }
+
+            @media #{$xs} {
+                font-size: 14px;
+                padding: 6px 25px;
+            }
+        }
+
+        .upload-input {
+            display: none;
+        }
+    }
+
+    &-shape {
+        &-5 {
+            position: absolute;
+            bottom: 90%;
+            left: 100%;
+            transform: translateX(-50%);
+            z-index: -1;
+
+            @media #{$lg} {
+                left: 110%;
+            }
+            @media #{$md} {
+                left: 100%;
+            }
+            @media #{$sm} {
+                left: 98%;
+            }
+            @media #{$xs} {
+                left: 95%;
+            }
+        }
+
+        &-8 {
+            position: absolute;
+            z-index: -1;
+
+            @media #{$md} {
+                right: 1%;
+            }
+
+            @media #{$sm} {
+                right: 10%;
+            }
+
+            @media #{$xs} {
+                right: 50%;
+            }
+        }
+
+        &-9 {
+            position: absolute;
+            z-index: -1;
+            transform: translateX(-60%);
+            left: 8%;
+            top: -60%;
+
+            @media #{$md} {
+                right: 30%;
+            }
+            @media #{$xs} {
+                right: 25%;
+            }
+
+            
+        }
+
+    }
+}

@@ -1,0 +1,300 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  Admin Customer & Disease, Order Tab
+/*----------------------------------------*/
+@keyframes slideUpIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.animation-u {
+    animation: slideUpIn 0.5s ease-out;
+}
+
+.animation-d {
+    animation: slideDownIn 0.5s ease-out;
+}
+
+.custom-table {
+    animation: slideUpIn 0.5s ease-out;
+
+    .ant-table {
+        border-radius: 8px;
+
+        .ant-table-container {
+
+            .ant-table-body,
+            .ant-table-content {
+                scrollbar-width: thin;
+                scrollbar-color: #eaeaea transparent;
+                scrollbar-gutter: stable;
+
+                max-height: 600px;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    width: 7px;
+                    height: 7px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: #bfc5c4;
+                    border-radius: 8px;
+                    height: 60px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+            }
+        }
+    }
+}
+
+//product table
+.custom-order-table {
+    .ant-table {
+        border-radius: 8px;
+        animation: slideUpIn 0.5s ease-out;
+
+        .ant-table-container {
+
+            .ant-table-body,
+            .ant-table-content {
+                scrollbar-width: thin;
+                scrollbar-color: #eaeaea transparent;
+                scrollbar-gutter: stable;
+
+                max-height: 600px;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    width: 7px;
+                    height: 7px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: #bfc5c4;
+                    border-radius: 8px;
+                    height: 60px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    .product-name-list,
+    .product-quantity-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .product-name-cell,
+    .product-quantity-cell {
+        border-bottom: 1px solid #d9d9d9;
+        padding: 8px;
+    }
+
+    .product-name-cell {
+        text-align: left;
+    }
+
+    .product-quantity-cell {
+        text-align: center;
+    }
+}
+
+//filter year order chart
+.filter-container {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+
+    .filter-label {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .filter-select {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        color: #333;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-color: #BA98F9;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #BA98F9;
+            box-shadow: 0 0 5px #BA98F9;
+        }
+
+        option {
+            padding: 8px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fff;
+        }
+    }
+}
+
+//pie chart order status
+.order-status-cell {
+    display: flex;
+    align-items: center;
+    padding: 5px 12px;
+
+    .status-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .status-title {
+        flex: 1;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .status-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: #452c6d;
+    }
+}
+
+.pie-chart-container {
+    .recharts-tooltip-wrapper {
+        border-radius: 8px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 8px !important;
+    }
+}
+
+//filter year, month prediction frequency chart
+.filter-container-pf {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    .filter-label {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .filter-select {
+        width: 120px;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #333;
+        background-color: #BA98F9 !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        .ant-select-selector {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #BA98F9 !important;
+            font-size: 14px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                border-color: #BA98F9 !important;
+            }
+
+            &:focus {
+                border-color: #BA98F9 !important;
+                box-shadow: 0 0 5px #BA98F9 !important;
+            }
+        }
+
+        .ant-select-arrow {
+            color: #333;
+        }
+
+        .ant-select-dropdown {
+            .ant-select-item {
+                padding: 8px;
+                font-size: 16px;
+                color: #333;
+                background-color: #BA98F9 !important;
+
+                &:hover {
+                    background-color: #BA98F9 !important;
+                }
+            }
+        }
+    }
+}
+
+// filter disease distribution pie chart
+.filter-container-dd {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    label {
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    select {
+        padding: 5px 12px;
+        border-radius: 8px;
+        border: 1px solid #BA98F9;
+        font-size: 14px;
+        background-color: #f9f9f9;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            border-color: #BA98F9;
+        }
+
+        &:focus {
+            border-color: #BA98F9;
+            box-shadow: 0 0 5px #BA98F9 !important;
+            outline: none;
+        }
+    }
+}
+

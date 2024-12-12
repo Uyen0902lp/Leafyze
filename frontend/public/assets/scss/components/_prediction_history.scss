@@ -1,0 +1,287 @@
+@use "../utils" as *;
+
+/*----------------------------------------*/
+/*  9.2 Prediction History CSS
+/*----------------------------------------*/
+.#{$theme-prifix}-prediction_history {
+    padding: 20px 60px;
+    background-image: url('../../images/banner/banner-3.png');
+
+    @media #{$lg},
+    #{$md} {
+        padding: 15px 50px;
+    }
+
+    @media #{$sm},
+    #{$xs} {
+        padding: 10px 30px;
+    }
+
+    &-btn {
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--tp-theme-green);
+        display: inline-block;
+        padding: 7px 35px;
+        border-radius: 24px;
+        background-color: var(--tp-common-white);
+        border: 1px solid var(--tp-theme-green);
+
+        &:hover {
+            background-color: var(--tp-theme-green);
+            color: var(--tp-common-white);
+        }
+
+        @media #{$sm},
+        #{$xs} {
+            padding: 6px 20px;
+            font-size: 14px;
+            border-radius: 50px;
+        }
+    }
+
+    &-btn-remove {
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--tp-common-white);
+        display: inline-block;
+        padding: 8px 35px;
+        border-radius: 24px;
+        background-color: var(--tp-theme-green);
+
+        &:hover {
+            background-color: #42603D;
+            color: var(--tp-common-white);
+        }
+
+        @media #{$sm},
+        #{$xs} {
+            padding: 7px 20px;
+            font-size: 14px;
+            border-radius: 50px;
+        }
+    }
+
+    &-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+
+        @media #{$lg},
+        #{$md} {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        @media #{$sm},
+        #{$xs} {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+    }
+
+    &-card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 350px;
+        background-color: #e6e6e6;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            transform: scale(1.03);
+        }
+
+        &-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .remove-icon {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            z-index: 2;
+
+            span {
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            &:hover {
+                color: #ff0000;
+            }
+        }
+
+        /* Overlay shown on hover (desktop) or with .show-overlay (mobile) */
+        &-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 16px;
+            text-align: center;
+            z-index: 1;
+
+            .#{$theme-prifix}-prediction_history-card:hover &,
+            .show-overlay & {
+                opacity: 1;
+            }
+
+            &-text {
+                margin: 4px 0;
+                font-size: 14px;
+                color: #fff;
+                cursor: default;
+            }
+
+            &-healthy {
+                margin: 4px 0;
+                font-size: 16px;
+                color: #fff;
+                cursor: default;
+            }
+
+            &-products {
+                h4 {
+                    margin-top: 10px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #fff;
+                    cursor: default;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding-left: 20px;
+                    margin: 8px 0 0;
+                    text-align: left;
+
+                    li {
+                        font-size: 14px;
+                        cursor: url('../../images/cursor/cursor-cart-2.png'), pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    &-no-history {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+.date-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media #{$lg}, #{$md} {
+        flex-direction: row;
+    }
+
+    @media #{$sm}, #{$xs} {
+        flex-direction: row;
+    }
+
+    input {
+        max-width: 100%;
+        box-sizing: border-box;
+        outline: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: 'Jost', sans-serif;
+
+        &:focus {
+            outline: none;
+            border-color: var(--tp-theme-green);
+        }
+    }
+
+    .react-datepicker {
+        font-family: 'Jost', sans-serif;
+
+        &__header {
+            background-color: #f3f9f2;
+        }
+
+        &__day-name {
+            font-family: 'Jost', sans-serif;
+            font-weight: normal;
+            color: #32472f;
+        }
+
+        &__current-month {
+            color: #32472f;
+        }
+
+        &__day--today {
+            color: #32472f;
+        }
+
+        &__month-dropdown,
+        &__year-dropdown,
+        &__month-select,
+        &__year-select {
+            font-family: 'Jost', sans-serif;
+        }
+
+        &__month-select,
+        &__year-select {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 4px;
+            margin-top: 5px;
+        }
+
+        &__day--selected,
+        &__day--keyboard-selected {
+            background-color: #42603D !important;
+            color: #fff !important;
+        }
+
+        &__day--in-range {
+            background-color: var(--tp-theme-green) !important;
+            color: #fff !important;
+        }
+
+        &__day--before-range,
+        &__day--in-hover-range {
+            background-color: var(--tp-theme-green) !important;
+            color: #fff !important;
+        }
+
+        &__day--in-selecting-range {
+            background-color: #92b78b !important;
+            color: #fff !important;
+        }
+
+        .react-datepicker__day:hover {
+            background-color: #42603D !important;
+            color: #fff !important;
+        }
+    }
+}
