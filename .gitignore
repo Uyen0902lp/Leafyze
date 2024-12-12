@@ -1,0 +1,6 @@
+node_modules/
+
+# Exclude model files
+p_fastAPI/models/Tomato_inceptionv3.h5
+p_fastAPI/models/Tomato_resnet50.h5
+p_fastAPI/models/Tomato_vgg16.h5
