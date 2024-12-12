@@ -1,0 +1,28 @@
+# Node modules
+/node_modules
+
+# Build outputs
+/dist
+
+# Environment variables
+.env
+.env.*
+
+
+# Uploads
+/uploads
+
+# IDE configurations
+.vscode
+/.husky
+
+# Temporary files and logs
+/tmp
+/logs
+*.log
+
+# Lock files
+yarn.lock
+package-lock.json
+
+.vercel
